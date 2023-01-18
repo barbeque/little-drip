@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name "Logos")(type "KiCad")(uri "${KIPRJMOD}/Logos")(options "")(descr ""))
+  (lib (name "5641AS")(type "KiCad")(uri "${KIPRJMOD}/5641AS.pretty")(options "")(descr ""))
 )
