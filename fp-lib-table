@@ -2,4 +2,5 @@
   (lib (name "Logos")(type "KiCad")(uri "${KIPRJMOD}/Logos")(options "")(descr ""))
   (lib (name "5641AS")(type "KiCad")(uri "${KIPRJMOD}/5641AS.pretty")(options "")(descr ""))
   (lib (name "DripButtons")(type "KiCad")(uri "${KIPRJMOD}/DripButtons.pretty")(options "")(descr ""))
+  (lib (name "XC6372A331PR")(type "KiCad")(uri "${KIPRJMOD}/XC6372A331PR-G/XC6372A331PR.pretty")(options "")(descr ""))
 )

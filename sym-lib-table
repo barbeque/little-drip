@@ -1,3 +1,4 @@
 (sym_lib_table
   (lib (name "5641AS")(type "KiCad")(uri "${KIPRJMOD}/5641AS.kicad_sym")(options "")(descr ""))
+  (lib (name "XC6372A331PR")(type "Legacy")(uri "${KIPRJMOD}/XC6372A331PR-G/XC6372A331PR.lib")(options "")(descr ""))
 )
