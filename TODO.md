@@ -5,8 +5,9 @@ Version 1:
 	- [ ] Power switch
 		- [ ] Toggle, or soft power (sleep?)
  - [ ] Keyboard
-	- [ ] 6mm tac switches, or is there something better that's still small
-	- [ ] Maybe https://www.aliexpress.com/item/1005004127055347.html?
+	- [x] 6mm tac switches, or is there something better that's still small
+	- [x] Maybe https://www.aliexpress.com/item/1005004127055347.html?
+	- [ ] Check if 6mm fits in the holes if it stretches, just in case things go really wrong
  - [ ] LED
  	- [ ] Print out test board and make sure pin placement is right for 5641AS
  - [ ] Firmware

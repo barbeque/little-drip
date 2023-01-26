@@ -2601,7 +2601,7 @@
     (property "Value" "Jumper_2_Bridged" (id 1) (at 347.345 350.52 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "" (id 2) (at 347.345 354.33 0)
+    (property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_RoundedPad1.0x1.5mm" (id 2) (at 347.345 354.33 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 347.345 354.33 0)
@@ -2714,7 +2714,7 @@
     (property "Value" "74HC138" (id 1) (at 149.3394 223.52 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (id 2) (at 147.32 236.22 0)
+    (property "Footprint" "Package_DIP:DIP-16_W7.62mm_Socket_LongPads" (id 2) (at 147.32 236.22 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://www.ti.com/lit/gpn/sn74LS138" (id 3) (at 147.32 236.22 0)
@@ -2845,7 +2845,7 @@
     (property "Value" "74HC251" (id 1) (at 113.7794 176.53 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (id 2) (at 111.76 197.485 0)
+    (property "Footprint" "Package_DIP:DIP-16_W7.62mm_Socket_LongPads" (id 2) (at 111.76 197.485 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "http://www.ti.com/lit/gpn/sn74LS251" (id 3) (at 111.76 197.485 0)
@@ -3317,7 +3317,7 @@
     (property "Value" "Jumper_2_Bridged" (id 1) (at 335.28 348.615 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Footprint" "" (id 2) (at 335.28 351.79 0)
+    (property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_RoundedPad1.0x1.5mm" (id 2) (at 335.28 351.79 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 335.28 351.79 0)
@@ -3597,10 +3597,10 @@
     (property "Reference" "Q9" (id 0) (at 59.69 227.9649 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Value" "Q_NPN_EBC" (id 1) (at 59.69 230.5049 0)
+    (property "Value" "2n2222" (id 1) (at 59.69 230.5049 0)
       (effects (font (size 1.27 1.27)) (justify left))
     )
-    (property "Footprint" "" (id 2) (at 59.055 226.695 0)
+    (property "Footprint" "Package_TO_SOT_THT:TO-92L_Inline" (id 2) (at 59.055 226.695 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (id 3) (at 53.975 229.235 0)
@@ -4365,10 +4365,10 @@
       (reference "JP4") (unit 1) (value "Jumper_2_Bridged") (footprint "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_RoundedPad1.0x1.5mm")
     )
     (path "/61044d30-1770-4c3d-b97d-7db5b532ad09"
-      (reference "JP5") (unit 1) (value "Jumper_2_Bridged") (footprint "")
+      (reference "JP5") (unit 1) (value "Jumper_2_Bridged") (footprint "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_RoundedPad1.0x1.5mm")
     )
     (path "/0445bf15-da07-48c0-a8de-26862fcf9018"
-      (reference "JP6") (unit 1) (value "Jumper_2_Bridged") (footprint "")
+      (reference "JP6") (unit 1) (value "Jumper_2_Bridged") (footprint "Jumper:SolderJumper-2_P1.3mm_Bridged2Bar_RoundedPad1.0x1.5mm")
     )
     (path "/1d72346c-b99b-4c6d-9e88-bc877176be56"
       (reference "Q1") (unit 1) (value "2n2907") (footprint "Package_TO_SOT_THT:TO-92_Inline")
@@ -4395,7 +4395,7 @@
       (reference "Q8") (unit 1) (value "2n2907") (footprint "Package_TO_SOT_THT:TO-92_Inline")
     )
     (path "/939ab6aa-dbe9-43c6-965a-086e911795f2"
-      (reference "Q9") (unit 1) (value "Q_NPN_EBC") (footprint "")
+      (reference "Q9") (unit 1) (value "2n2222") (footprint "Package_TO_SOT_THT:TO-92L_Inline")
     )
     (path "/145b74ec-bedb-46ee-9f86-14f013c61016"
       (reference "R1") (unit 1) (value "10kΩ") (footprint "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal")
@@ -4578,10 +4578,10 @@
       (reference "U4") (unit 1) (value "MSP430G2553IN20") (footprint "Package_DIP:DIP-20_W7.62mm")
     )
     (path "/164ec3c1-bd7a-4bb1-8613-debffd171eb8"
-      (reference "U5") (unit 1) (value "74HC251") (footprint "")
+      (reference "U5") (unit 1) (value "74HC251") (footprint "Package_DIP:DIP-16_W7.62mm_Socket_LongPads")
     )
     (path "/117cc87e-99c8-46c5-b889-87194d87a2f8"
-      (reference "U6") (unit 1) (value "74HC138") (footprint "")
+      (reference "U6") (unit 1) (value "74HC138") (footprint "Package_DIP:DIP-16_W7.62mm_Socket_LongPads")
     )
     (path "/9996183c-20da-4f1d-bad6-9ad27b56213d"
       (reference "U7") (unit 1) (value "74HC595") (footprint "Package_DIP:DIP-16_W7.62mm_Socket_LongPads")
