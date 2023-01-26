@@ -2469,7 +2469,7 @@
 
   (footprint "Package_DIP:DIP-16_W7.62mm_Socket_LongPads" (layer "F.Cu")
     (tedit 5A02E8C5) (tstamp 99ee43e0-4a41-49ca-a946-1fc87dcc3166)
-    (at 74.305 144.31)
+    (at 142.25 154.295)
     (descr "16-lead though-hole mounted DIP package, row spacing 7.62 mm (300 mils), Socket, LongPads")
     (tags "THT DIP DIL PDIP 2.54mm 7.62mm 300mil Socket LongPads")
     (property "Sheetfile" "drip.kicad_sch")
@@ -3951,7 +3951,7 @@
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp c7fb9a75-9190-46ba-b573-9243c121b6e9)
     )
-    (fp_text value "74HC251" (at 3.81 20.11) (layer "F.Fab")
+    (fp_text value "74HC251" (at 10.541 14.732 90) (layer "F.SilkS")
       (effects (font (size 1 1) (thickness 0.15)))
       (tstamp b66fc8c1-c263-466d-8b1d-1058fa00a233)
     )
