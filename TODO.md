@@ -1,15 +1,15 @@
 Version 1:
- - [ ] Power supply
-	- [ ] Batteries? That one weird TI boost chip?
-	- [ ] DC jack for testing? 3.3v LDO then?
-	- [ ] Power switch
-		- [ ] Toggle, or soft power (sleep?)
- - [ ] Keyboard
+ - [x] Power supply
+	- [x] Batteries? That one weird TI boost chip?
+	- [x] DC jack for testing? 3.3v LDO then?
+	- [x] Power switch
+		- [x] Toggle, or soft power (sleep?)
+ - [x] Keyboard
 	- [x] 6mm tac switches, or is there something better that's still small
 	- [x] Maybe https://www.aliexpress.com/item/1005004127055347.html?
 	- [ ] Check if 6mm fits in the holes if it stretches, just in case things go really wrong
- - [ ] LED
- 	- [ ] Print out test board and make sure pin placement is right for 5641AS
+ - [x] LED
+ 	- [x] Print out test board and make sure pin placement is right for 5641AS
  - [ ] Firmware
 	- [ ] All basic operations
 	- [ ] Automatic sleep/wake mode?
