@@ -78,13 +78,27 @@ unsigned char display[8];
 // Where the next key struck will be inserted into display buffer
 unsigned char insertionPoint;
 
+void turnOnLedDigit(unsigned char digit) {  
+  digitalWrite(nLED_or_KBD_SEL, LOW);
+
+  // output 0: leftmost digit ($7)
+  digitalWrite(SEL_0, digit & 0x01);
+  digitalWrite(SEL_1, digit & 0x02);
+  digitalWrite(SEL_2, digit & 0x04);
+  // output 7: rightmost digit ($0)
+  
+  digitalWrite(nLED_or_KBD_SEL, HIGH);
+}
+
 /**
  * Blit a single character into a segment display
  */
 void blitIntoSegmentDisplay(unsigned char character) {
-  // TODO: is this backward? let's find out
+  // hmph this is not working AT ALL
+  
   for(unsigned char i = 0; i < 8; ++i) {
     digitalWrite(LED_DATA, character & 0x01);
+    
     digitalWrite(LED_CLOCK, HIGH);
     digitalWrite(LED_CLOCK, LOW);
 
@@ -127,7 +141,7 @@ void refreshSegmentDisplay() {
       }
     }
   }
-  
+
   digitalWrite(nLED_or_KBD_SEL, HIGH);
 }
 
@@ -145,6 +159,9 @@ void updateModeLEDs() {
 // TODO: Functions to get and set the value from current entry
 
 void setup() {
+  /*Serial.begin(9600);
+  Serial.write("Hello");
+  
   // put your setup code here, to run once:
   pinMode(KBD_DATA, INPUT);
   pinMode(DEC_LED, OUTPUT);
@@ -172,7 +189,14 @@ void setup() {
   }
   insertionPoint = 0;
   
-  updateModeLEDs();
+  updateModeLEDs();*/
+
+  pinMode(nLED_or_KBD_SEL, OUTPUT);
+  pinMode(SEL_0, OUTPUT);
+  pinMode(SEL_1, OUTPUT);
+  pinMode(SEL_2, OUTPUT);
+  pinMode(LED_DATA, OUTPUT);
+  pinMode(LED_CLOCK, OUTPUT);
 }
 
 void loop() {
@@ -182,5 +206,9 @@ void loop() {
   // Software debounce (delay?)
 
   // TODO: Figure out a timer interrupt
-  refreshSegmentDisplay();
+  //refreshSegmentDisplay();
+
+  for(unsigned int i = 0; i < 8; ++i) {
+    turnOnLedDigit(i);
+  }
 }
