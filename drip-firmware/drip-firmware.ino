@@ -122,8 +122,6 @@ void updateModeLEDs() {
 
 // TODO: Functions to get and set the value from current entry
 
-unsigned int num;
-
 void setup() {
   /*Serial.begin(9600);
   Serial.write("Hello");
@@ -149,11 +147,6 @@ void setup() {
   digitalWrite(nLED_or_KBD_SEL, 1);
 
   displayMode = DEC_LED;
-
-  for(unsigned int i = 0; i < 8; ++i) {
-    display[i] = 0;
-  }
-  insertionPoint = 0;
   
   updateModeLEDs();*/
 
@@ -165,7 +158,12 @@ void setup() {
   pinMode(LED_CLOCK, OUTPUT);
   pinMode(LED_LATCH, OUTPUT);
 
-  num = 0;
+  digitalWrite(LED_LATCH, LOW);
+
+  for(unsigned int i = 0; i < 8; ++i) {
+    display[i] = 0;
+  }
+  insertionPoint = 0;
 }
 
 void loop() {
@@ -180,13 +178,10 @@ void loop() {
   digitalWrite(nLED_or_KBD_SEL, LOW);
 
   for(unsigned int i = 0; i < 8; ++i) {
-    turnOnLedDigit(2);
-    blitIntoSegmentDisplay(font[num]);
+    
+    blitIntoSegmentDisplay(font[i]);
+    turnOnLedDigit(i); // something's really weird with this, digit 0 is being written as digit 7. timing?
   }
-
-  num += 1;
-  num = num % 0x10;
-  delay(1000);
 
   digitalWrite(nLED_or_KBD_SEL, HIGH);
 }
