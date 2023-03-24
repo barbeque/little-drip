@@ -180,7 +180,7 @@ void loop() {
   for(unsigned int i = 0; i < 8; ++i) {
     
     blitIntoSegmentDisplay(font[i]);
-    turnOnLedDigit(i); // something's really weird with this, digit 0 is being written as digit 7. timing?
+    turnOnLedDigit(i);
   }
 
   digitalWrite(nLED_or_KBD_SEL, HIGH);

@@ -3042,6 +3042,10 @@
     (uuid fee0ccd7-c5f0-4f23-b779-1cce36ec4445)
   )
 
+  (text "10kΩ is probably too much (dim when oscillating)" (at 385.445 364.49 0)
+    (effects (font (size 1.27 1.27)) (justify left bottom))
+    (uuid 0114ca45-b1d3-440a-b90c-f02a309cd1c2)
+  )
   (text "TODO: Some kind of power switch?" (at 91.44 50.8 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 16c97171-e972-44b7-96c7-ede315c2f2d2)
