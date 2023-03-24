@@ -5,6 +5,7 @@
 #define SEL_2 P1_2
 #define LED_DATA P1_3
 #define LED_CLOCK P1_4
+#define LED_LATCH P1_6
 #define nLED_or_KBD_SEL P1_5
 
 #define KBD_DATA P2_0
@@ -35,14 +36,14 @@ enum LedMode {
  */
 
 enum FontSegment {
-  FONT_A = 0x1,
-  FONT_B = 0x2,
-  FONT_C = 0x4,
-  FONT_D = 0x8,
-  FONT_E = 0xF,
-  FONT_F = 0x20,
-  FONT_G = 0x40,
-  FONT_DP = 0x80
+  FONT_A = 0x80,
+  FONT_B = 0x40,
+  FONT_C = 0x20,
+  FONT_D = 0x10,
+  FONT_E = 0x8,
+  FONT_F = 0x4,
+  FONT_G = 0x2,
+  FONT_DP = 0x1
 };
 
 const unsigned char font[16] = {
@@ -79,24 +80,22 @@ unsigned char display[8];
 unsigned char insertionPoint;
 
 void turnOnLedDigit(unsigned char digit) {  
-  digitalWrite(nLED_or_KBD_SEL, LOW);
-
   // output 0: leftmost digit ($7)
   digitalWrite(SEL_0, digit & 0x01);
   digitalWrite(SEL_1, digit & 0x02);
   digitalWrite(SEL_2, digit & 0x04);
   // output 7: rightmost digit ($0)
-  
-  digitalWrite(nLED_or_KBD_SEL, HIGH);
 }
 
 /**
  * Blit a single character into a segment display
  */
 void blitIntoSegmentDisplay(unsigned char character) {
-  // hmph this is not working AT ALL
+  // FIXME: hmph this is not working AT ALL
   
   for(unsigned char i = 0; i < 8; ++i) {
+    digitalWrite(LED_CLOCK, LOW);
+    
     digitalWrite(LED_DATA, character & 0x01);
     
     digitalWrite(LED_CLOCK, HIGH);
@@ -104,45 +103,10 @@ void blitIntoSegmentDisplay(unsigned char character) {
 
     character = character >> 1;
   }
-}
 
-void refreshSegmentDisplay() {
-  digitalWrite(nLED_or_KBD_SEL, LOW);
-
-  /*
-  for(unsigned int digit = 0; digit < 8; ++digit) {
-    // from left to right
-    // convert digit into binary and write to SEL_0, SEL_1, SEL_2
-    // call blitIntoSegmentDisplay for this character
-  }
-  */
-
-  /*
-  for(unsigned int digit = 0; digit < 8; ++digit) {
-    // leftmost digit
-    digitalWrite(SEL_0, digit & 0x04);
-    digitalWrite(SEL_1, digit & 0x02);
-    digitalWrite(SEL_2, digit & 0x01);
-    // rightmost digit
-    blitIntoSegmentDisplay(digitTo7SegmentFont(digit));
-  }
-  */
-
-  for(unsigned int x = 0; x <= 1; x++) {
-    for(unsigned int y = 0; y <= 1; y++) {
-      for(unsigned int z = 0; z <= 1; ++z) {
-        // HACK
-        digitalWrite(SEL_0, x);
-        digitalWrite(SEL_1, y);
-        digitalWrite(SEL_2, z);
-
-        // should just light up the "A" segment of all 7 segs
-        blitIntoSegmentDisplay(FONT_A);
-      }
-    }
-  }
-
-  digitalWrite(nLED_or_KBD_SEL, HIGH);
+  // Cycle the latch so the 595 output will change
+  digitalWrite(LED_LATCH, HIGH);
+  digitalWrite(LED_LATCH, LOW);
 }
 
 /**
@@ -157,6 +121,8 @@ void updateModeLEDs() {
 }
 
 // TODO: Functions to get and set the value from current entry
+
+unsigned int num;
 
 void setup() {
   /*Serial.begin(9600);
@@ -197,6 +163,9 @@ void setup() {
   pinMode(SEL_2, OUTPUT);
   pinMode(LED_DATA, OUTPUT);
   pinMode(LED_CLOCK, OUTPUT);
+  pinMode(LED_LATCH, OUTPUT);
+
+  num = 0;
 }
 
 void loop() {
@@ -208,7 +177,16 @@ void loop() {
   // TODO: Figure out a timer interrupt
   //refreshSegmentDisplay();
 
+  digitalWrite(nLED_or_KBD_SEL, LOW);
+
   for(unsigned int i = 0; i < 8; ++i) {
-    turnOnLedDigit(i);
+    turnOnLedDigit(2);
+    blitIntoSegmentDisplay(font[num]);
   }
+
+  num += 1;
+  num = num % 0x10;
+  delay(1000);
+
+  digitalWrite(nLED_or_KBD_SEL, HIGH);
 }
