@@ -173,8 +173,8 @@ void changeDisplayMode(LedMode newMode) {
 }
 
 void insertDigit(unsigned char digitValue) {
-  display[insertionPoint] = digitValue;
-  insertionPoint = max(7, insertionPoint + 1);
+  display[7 - insertionPoint] = digitValue;
+  insertionPoint = min(7, insertionPoint + 1);
 }
 
 // TODO: Functions to get and set the value from current entry
@@ -252,13 +252,16 @@ void loop() {
   digitalWrite(nLED_or_KBD_SEL, HIGH);
 
   KeyCode justPressed = getKey();
+  
   if(justPressed != KEY_NIL && justPressed != lastKeyPressed) {
     // TODO: Pass this into another handler. For now, we'll just do something stupid
+    lastKeyPressed = justPressed;
     switch(justPressed) {
       case KEY_CLEAR:
         // Wipe out the display to prove input reading works
         for(unsigned int i = 0; i < 8; ++i) {
           display[i] = 0;
+          insertionPoint = 0;
         }
         break;
       case KEY_DEC:
@@ -321,6 +324,11 @@ void loop() {
       case KEY_0:
         insertDigit(0x0);
         break;
-    }
+    } // end key switch
+  } // end if key not nil
+
+  if(justPressed == KEY_NIL) {
+    // otherwise we can't press-release-press the same key
+    lastKeyPressed = KEY_NIL;
   }
 }
